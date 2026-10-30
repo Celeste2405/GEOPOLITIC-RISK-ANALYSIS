@@ -145,9 +145,7 @@ Les données d'Aswath Damodaran (NYU Stern) complètent les indicateurs financie
 
 **Source :** [Damodaran — Country Risk Premiums](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/ctryprem.html)
 
-**Millésime collecté :** janvier 2026.
 
-**Fréquence :** photographie ponctuelle ; les archives annuelles restent à collecter.
 
 | Variable | Description |
 |---|---|
@@ -198,7 +196,7 @@ Les opérations réalisées comprennent :
 
 La base annuelle sera intégrée aux autres sources après définition de la fréquence commune de modélisation.
 
-### 5.2. Données financières et monétaires — FRED
+### 5.3. Données financières et monétaires — FRED
 
 Les séries collectées ont été harmonisées à fréquence mensuelle. Les observations quotidiennes ont été agrégées par moyenne mensuelle.
 
@@ -234,7 +232,7 @@ La base consolidée contient **312 observations mensuelles et 14 variables**, do
 - Les variations annuelles du Brent et du WTI présentent chacune 12 valeurs manquantes initiales, liées au calcul sur douze mois.
 - Aucune autre valeur manquante n'a été détectée.
 
-### 5.3. Primes de risque pays — Damodaran
+### 5.4. Primes de risque pays — Damodaran
 
 Les données ont été extraites de la feuille `ERPs by country` du classeur Excel de Damodaran.
 
@@ -249,6 +247,15 @@ Les opérations réalisées comprennent :
 La base finale contient **5 observations et 6 colonnes**, sans aucune valeur manquante.
 
 Les valeurs de janvier 2026 sont conservées séparément des données historiques afin d'éviter toute utilisation d'informations futures dans les analyses portant sur 2000–2025.
+
+### 5.5.  Analyse exploratoire du risque géopolitique
+
+Une analyse exploratoire des indices AI-GPR nationaux a été réalisée sur la période **2000–2025** pour cinq pays : France, Allemagne, Italie, Espagne et États-Unis. Elle comprend l'étude des distributions, la comparaison des séries brutes et standardisées, l'identification des mois de risque extrême (au-delà du 95e percentile national) et l'analyse des composantes *initiator*, *respondent* et *spillover*.
+
+Les résultats mettent en évidence une forte hétérogénéité entre les pays. Les effets de *spillover* représentent la composante majoritaire en Allemagne (63,3 %), en France (57,1 %) et en Italie (53,7 %), tandis que le rôle d'initiateur prédomine aux États-Unis (55,7 %). La composition du risque varie également lors des épisodes extrêmes.
+
+**Notebook :** `notebooks/01_exploratory_data_analysis.ipynb`
+
 
 ### 5.4. Construction du panel géopolitique et financier
 Les données AI-GPR mensuelles ont été fusionnées avec les séries financières de FRED sur la période **janvier 2000 – décembre 2025**, afin de constituer un panel de **1 560 observations (5 pays × 312 mois) et 24 colonnes**. Il rassemble les indices géopolitiques nationaux et globaux, les rendements souverains à 10 ans, les spreads par rapport à l'Allemagne, les taux directeurs de la BCE et de la Fed, ainsi que les prix du Brent et du WTI et leurs variations annuelles.
@@ -273,14 +280,6 @@ data/
 ```
 
 Les fichiers de la Banque mondiale et les futurs fichiers AI-GPR pourront être ajoutés à cette arborescence au fur et à mesure de leur intégration.
-
-## 7. Analyse exploratoire du risque géopolitique
-
-Une analyse exploratoire des indices AI-GPR nationaux a été réalisée sur la période **2000–2025** pour cinq pays : France, Allemagne, Italie, Espagne et États-Unis. Elle comprend l'étude des distributions, la comparaison des séries brutes et standardisées, l'identification des mois de risque extrême (au-delà du 95e percentile national) et l'analyse des composantes *initiator*, *respondent* et *spillover*.
-
-Les résultats mettent en évidence une forte hétérogénéité entre les pays. Les effets de *spillover* représentent la composante majoritaire en Allemagne (63,3 %), en France (57,1 %) et en Italie (53,7 %), tandis que le rôle d'initiateur prédomine aux États-Unis (55,7 %). La composition du risque varie également lors des épisodes extrêmes.
-
-**Notebook :** `notebooks/01_exploratory_data_analysis.ipynb`
 
 
 
