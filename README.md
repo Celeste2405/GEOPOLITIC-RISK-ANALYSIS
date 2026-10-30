@@ -208,9 +208,10 @@ Deux catégories d'indicateurs supplémentaires ont été construites.
 
 Pour la France, l'Italie et l'Espagne, les spreads sont calculés par rapport au rendement souverain allemand à 10 ans, utilisé comme référence pour les pays de la zone euro :
 
-\[
-Spread_{i,t}^{10Y}=Yield_{i,t}^{10Y}-Yield_{DE,t}^{10Y}
-\]
+
+$$
+\text{Spread}_{i,t}^{10Y} = \text{Yield}_{i,t}^{10Y} - \text{Yield}_{DE,t}^{10Y}
+$$
 
 Les spreads sont exprimés en points de pourcentage.
 
@@ -218,9 +219,9 @@ Les spreads sont exprimés en points de pourcentage.
 
 Pour le Brent et le WTI, les variations en glissement annuel sont calculées selon :
 
-\[
-\Delta Oil_t^{YoY}=\left(\frac{P_t}{P_{t-12}}-1\right)\times100
-\]
+$$
+\Delta \text{Oil}_{t}^{YoY} = \left(\frac{P_t}{P_{t-12}} - 1\right) \times 100
+$$
 
 Ces variables permettent de mesurer l'évolution des prix de l'énergie sur douze mois.
 
