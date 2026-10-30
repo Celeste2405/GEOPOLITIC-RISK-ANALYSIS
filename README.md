@@ -250,17 +250,12 @@ La base finale contient **5 observations et 6 colonnes**, sans aucune valeur man
 
 Les valeurs de janvier 2026 sont conservées séparément des données historiques afin d'éviter toute utilisation d'informations futures dans les analyses portant sur 2000–2025.
 
-### 5.4. Harmonisation des sources et constitution du dataset final
+### 5.4. Construction du panel géopolitique et financier
+Les données AI-GPR mensuelles ont été fusionnées avec les séries financières de FRED sur la période **janvier 2000 – décembre 2025**, afin de constituer un panel de **1 560 observations (5 pays × 312 mois) et 24 colonnes**. Il rassemble les indices géopolitiques nationaux et globaux, les rendements souverains à 10 ans, les spreads par rapport à l'Allemagne, les taux directeurs de la BCE et de la Fed, ainsi que les prix du Brent et du WTI et leurs variations annuelles.
 
-*Étape à réaliser.*
-
-Cette étape consistera à :
-
-- Définir une fréquence commune d'analyse.
-- Harmoniser les identifiants géographiques et les périodes.
-- Intégrer les indices AI-GPR.
-- Examiner les valeurs manquantes et les différences de couverture temporelle.
-- Construire une base consolidée pour la modélisation.
+Les contrôles ont confirmé l'absence de doublons et la disponibilité des principales variables financières. Les valeurs manquantes restantes sont structurelles : spreads non définis pour les États-Unis et variations annuelles du pétrole indisponibles sur les douze premiers mois.
+**Script :** `src/build_financial_panel.py`  
+**Base produite :** `data/processed/georisk_financial_panel.csv`
 
 ## 6. Organisation des données
 
@@ -287,14 +282,6 @@ Les résultats mettent en évidence une forte hétérogénéité entre les pays.
 
 **Notebook :** `notebooks/01_exploratory_data_analysis.ipynb`
 
-## 8. Construction du panel géopolitique et financier
-
-Les données AI-GPR mensuelles ont été fusionnées avec les séries financières de FRED sur la période **janvier 2000 – décembre 2025**, afin de constituer un panel de **1 560 observations (5 pays × 312 mois) et 24 colonnes**. Il rassemble les indices géopolitiques nationaux et globaux, les rendements souverains à 10 ans, les spreads par rapport à l'Allemagne, les taux directeurs de la BCE et de la Fed, ainsi que les prix du Brent et du WTI et leurs variations annuelles.
-
-Les contrôles ont confirmé l'absence de doublons et la disponibilité des principales variables financières. Les valeurs manquantes restantes sont structurelles : spreads non définis pour les États-Unis et variations annuelles du pétrole indisponibles sur les douze premiers mois.
-
-**Script :** `src/build_financial_panel.py`  
-**Base produite :** `data/processed/georisk_financial_panel.csv`
 
 
 
